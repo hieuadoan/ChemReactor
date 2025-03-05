@@ -1,0 +1,32 @@
+# .readthedocs.yaml
+# Read the Docs configuration file
+# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
+
+version: 2
+
+# Set the OS, Python version and other tools
+build:
+  os: ubuntu-22.04
+  tools:
+    python: "3.12"
+  jobs:
+    post_create_environment:
+      # Install dependencies with conda
+      - conda env create --file chemreactor.yml
+      - conda activate chemreactor
+
+# Build documentation in the docs/ directory with Sphinx
+sphinx:
+  configuration: docs/conf.py
+
+# Optionally declare the Python requirements required to build your docs
+python:
+  install:
+    - method: pip
+      path: .
+      extra_requirements:
+        - docs
+
+# Conda configuration
+conda:
+  environment: chemreactor.yml
