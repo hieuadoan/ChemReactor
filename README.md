@@ -6,8 +6,6 @@ ChemReactor is a powerful, intuitive Python package for modeling, simulating, an
 
 The package focuses on reactor design principles with a highly visual, educational approach that makes chemical reaction engineering more accessible and intuitive for practitioners and students alike.
 
-![Reactor Simulation Example](https://via.placeholder.com/800x400?text=Reactor+Simulation+Visualization)
-
 ## ✨ Features
 
 - **Multiple Reactor Types**: Simulate batch reactors, continuous stirred-tank reactors (CSTRs), and plug flow reactors (PFRs)
@@ -19,7 +17,7 @@ The package focuses on reactor design principles with a highly visual, education
 - **Low Barrier to Entry**: Approachable for students and engineers new to Python or reaction modeling
 - **Extensible Architecture**: Easily add new reactor types, kinetic models, or visualization methods
 
-## 🚀 Installation
+## 🚀 Installation (Pip installation in progress)
 
 ```bash
 pip install chemreactor
@@ -96,15 +94,11 @@ The modular architecture makes it easy to extend with:
 
 ## 🤝 Contributing
 
-Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to get involved.
+is always welcome. 
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📧 Contact
-
-Questions or feedback? Open an issue or contact the maintainers at [your.email@example.com](mailto:your.email@example.com).
 
 ## 🔄 Key Advantages
 
