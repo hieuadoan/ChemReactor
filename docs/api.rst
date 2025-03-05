@@ -7,6 +7,7 @@ Core
 .. automodule:: chemreactor.core.base_reactor
 	:members:
 	:undoc-members:
+	:show-inheritance:
 
 Reactors
 --------
