@@ -29,7 +29,7 @@ class Reaction:
 		self.k = rate_constant
 		self.rate_equation = rate_equation
 
-	def calculate_rate(self, concentration: Dict[str, float] -> float:
+	def calculate_rate(self, concentration: Dict[str, float]) -> float:
 		"""
 		Calculate reaction rate based on concentrations
 
@@ -92,7 +92,7 @@ class BaseReactor(ABC):
 			'pressure': [pressure]
 		}
 
-		@abstractmethod
+	@abstractmethod
 	def run(self,
 			end_time: float,
 			time_points: Optional[np.ndarray] = None) -> Dict:
@@ -111,3 +111,50 @@ class BaseReactor(ABC):
 		Dict : Simulation results
 		"""
 		pass
+
+	def calculate_rates(self,
+						concentrations: Dict[str, float]) -> Dict[str, float]:
+		"""
+		Calculate net production/consumption rates for all species
+
+		Parameters:
+		-----------
+		concentrations : Dict[str, float]
+			Dictionary mapping species names to concentrations
+		
+		Returns:
+		-----------
+		Dict[str, float] : Net rates for all species
+		"""
+		# Initialize rates dictionary with zeros
+		net_rates = {species: 0.0 for species in concentrations}
+		
+		# Calculate contribution from each reaction
+		for reactions in self.reactions:
+			rxn_rate = reaction.calculate_rate(concentrations) 	
+
+			# Update rates for reactants (consumption)
+			for species, coeff in reaction.reactants.items():
+				net_rates[species] -= coeff * rxn_rate
+
+			# Update rates for products (production)
+			for species, coeff in reaction.products.items():
+				net_rates[species] += coeff * rxn_rate
+
+		return net_rates
+
+	def reset(self):
+		"""Reset the eractor to initial conditions"""
+		self.concentrations = self.initial_concentrations.copy()
+		self.time = 0.0
+		self.history = {
+			'time': [0.0],
+			'concentrations': [self.initial_concentrations.copy()],
+			'temperature': [self.temperature],
+			'pressure': [self.pressure]
+		}
+
+
+	def get_results(self) -> Dict:
+		"""Return simulation results"""
+		return self.history
