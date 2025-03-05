@@ -20,7 +20,14 @@ The package focuses on reactor design principles with a highly visual, education
 ## 🚀 Installation (Pip installation in progress)
 
 ```bash
-pip install chemreactor
+# Create new conda environment 
+conda env create -f chemreactor.yml
+
+# Activate environment 
+conda activate chemreactor
+
+# Install package in the development mode
+pip install -e .
 ```
 
 ## 🔍 Quick Example
