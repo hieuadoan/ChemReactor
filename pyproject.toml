@@ -1,3 +1,40 @@
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "chemreactor"
+version = "0.1.0"
+description = "A Python package for chemical reactor simulation and visualization"
+authors = [
+    {name = "Hieu Doan", email = "hieu.a.doan@gmail.com"}
+]
+requires-python = ">=3.12"
+readme = "README.md"
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+dependencies = [
+    "numpy>=1.26.0",
+    "scipy>=1.12.0",
+    "matplotlib>=3.8.0",
+    "pandas>=2.1.0",
+]
+
+[project.optional-dependencies]
+docs = [
+    "sphinx>=7.0.0",
+    "sphinx_rtd_theme>=1.3.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "flake8>=6.0.0",
+]
+
+[tool.setuptools]
+packages = ["chemreactor"]
