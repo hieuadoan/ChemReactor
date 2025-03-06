@@ -13,22 +13,13 @@ The package focuses on reactor design principles with a highly visual, education
 - **Interactive Visualizations**: See reactions in action with dynamic animations showing species concentrations
 - **Robust Numerical Methods**: Powered by scientific Python libraries for accurate solutions to complex ODEs
 - **Educational Focus**: Designed specifically for learning and teaching reactor engineering concepts
-- **Modern Python Interface**: Clean, intuitive API that follows current Python best practices
-- **Low Barrier to Entry**: Approachable for students and engineers new to Python or reaction modeling
 - **Extensible Architecture**: Easily add new reactor types, kinetic models, or visualization methods
 
-## 🚀 Installation (Pip installation in progress)
+## 📚 Documentation
 
-```bash
-# Create new conda environment 
-conda env create -f chemreactor.yml
-
-# Activate environment 
-conda activate chemreactor
-
-# Install package in the development mode
-pip install -e .
-```
+Visit our [documentation site](https://chemreactor.readthedocs.io/) for:
+- Detailed API reference
+- Tutorials and examples
 
 ## 🔍 Quick Example
 
@@ -61,14 +52,6 @@ animation = animator.create_batch_animation(results)
 plt.show()
 ```
 
-## 📚 Documentation
-
-Visit our [documentation site](https://chemreactor.readthedocs.io/) for:
-- Detailed API reference
-- Tutorials and examples
-- Theoretical background
-- Advanced usage guides
-
 ## 🔧 Use Cases
 
 - **Education**: Teach reaction engineering principles with interactive visualizations
@@ -77,14 +60,6 @@ Visit our [documentation site](https://chemreactor.readthedocs.io/) for:
 - **Process Development**: Simulate multi-step reaction processes
 - **Visual Learning**: Create intuitive visualizations to enhance understanding
 - **Engineering Design**: Bridge the gap between theoretical concepts and practical design
-
-## 🛠️ Extending ChemReactor
-
-The modular architecture makes it easy to extend with:
-- Custom reactor types
-- Specialized kinetic models
-- New visualization techniques
-- Integration with other chemical engineering tools
 
 ## 📊 Planned Features
 
@@ -106,17 +81,6 @@ is always welcome.
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🔄 Key Advantages
-
-ChemReactor offers several unique advantages for chemical engineering applications:
-
-- **Designed by and for Chemical Engineers**: Built with the specific needs of ChemE practitioners in mind
-- **Visualization-First Approach**: Prioritizes interactive visualizations for enhanced understanding
-- **Educational Foundation**: Perfect for classroom use and self-learning
-- **Engineering Design Focus**: Emphasizes practical reactor design principles
-- **Pure Python Implementation**: Easy to customize and extend for specific engineering problems
-- **Low Barrier to Entry**: Accessible to engineering students and professionals at all coding levels
 
 ---
 
