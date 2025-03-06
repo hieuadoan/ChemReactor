@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
+from typing import Dict, List, Optional, Callable
 import numpy as np
-from typing import Dict, List, Tuple, Optional, Union, Callable
-
 class Reaction:
 	"""Class represeting a chemical reaaction"""
 
@@ -29,7 +28,7 @@ class Reaction:
 		self.k = rate_constant
 		self.rate_equation = rate_equation
 
-	def calculate_rate(self, concentration: Dict[str, float]) -> float:
+	def calculate_rate(self, concentrations: Dict[str, float]) -> float:
 		"""
 		Calculate reaction rate based on concentrations
 
@@ -130,8 +129,8 @@ class BaseReactor(ABC):
 		net_rates = {species: 0.0 for species in concentrations}
 		
 		# Calculate contribution from each reaction
-		for reactions in self.reactions:
-			rxn_rate = reaction.calculate_rate(concentrations) 	
+		for reaction in self.reactions:
+			rxn_rate = reaction.calculate_rate(concentrations)
 
 			# Update rates for reactants (consumption)
 			for species, coeff in reaction.reactants.items():
@@ -153,7 +152,6 @@ class BaseReactor(ABC):
 			'temperature': [self.temperature],
 			'pressure': [self.pressure]
 		}
-
 
 	def get_results(self) -> Dict:
 		"""Return simulation results"""
