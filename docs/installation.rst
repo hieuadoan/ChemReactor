@@ -20,5 +20,5 @@ Installation
 
 .. code-block:: bash
 
-	uv pip install -e ".[dev,docs]"
+	uv pip install -e .
 
