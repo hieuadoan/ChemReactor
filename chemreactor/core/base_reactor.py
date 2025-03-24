@@ -2,13 +2,18 @@ from abc import ABC, abstractmethod
 from typing import Dict, List, Optional, Callable
 import numpy as np
 class Reaction:
-	"""Class represeting a chemical reaaction"""
+	"""Class represeting a chemical reaaction
+ 
+	All rate constants must be in units of s^-1 (for first order reactions)
+    or appropriate units for other reaction orders (e.g., M^-1 s^-1 for second order).
+    Time is always handled in seconds internally. 
+ 	"""
 
 	def __init__(self,
 				reactants: Dict[str, float],
 				products: Dict[str, float],
-				rate_constant: float,
-				rate_equation: Optional[Callable] = None):			
+				rate_constant: float,  # in s^-1
+				rate_equation: Optional[Callable] = None):
 		"""
 		Initialize a chemical reaction
 
@@ -55,9 +60,10 @@ class Reaction:
 class BaseReactor(ABC):
 	"""Abstract base class for all reactor types"""
 
-	def __init__(self, 
+	def __init__(self,
 				 initial_concentrations: Dict[str, float],
 				 reactions: List[Reaction],
+				 flow_rate: Optional[float] = None,
 				 volume: float = 1.0,
 				 temperature: float = 298.15,
 				 pressure: float = 101325.0):
@@ -70,6 +76,8 @@ class BaseReactor(ABC):
 			Dictionary mapping species names to initial concentrations
 		reactions : List[Reaction]
 			List of Reaction objects representing the reactions in the system
+		flow_rate : Optional[float]
+			Flow rate in m^3/s
 		volume : float
 			Reactor volume in m^3
 		temperature : float
@@ -77,9 +85,11 @@ class BaseReactor(ABC):
 		pressure : float
 			Reactor pressure in Pa
 		"""
+		
 		self.concentrations = initial_concentrations.copy()
 		self.initial_concentrations = initial_concentrations.copy()
 		self.reactions = reactions
+		self.flow_rate = flow_rate
 		self.volume = volume
 		self.temperature = temperature
 		self.pressure = pressure
@@ -90,6 +100,17 @@ class BaseReactor(ABC):
 			'temperature': [temperature],
 			'pressure': [pressure]
 		}
+	@property
+	def residence_time(self) -> Optional[float]:
+		"""Calculate and return residence time
+
+		Returns:
+		-------
+		Optional[float] : residence time 
+		"""	
+		if self.flow_rate is None or self.flow_rate == 0:
+			return None
+		return self.volume / self.flow_rate
 
 	@abstractmethod
 	def run(self,
