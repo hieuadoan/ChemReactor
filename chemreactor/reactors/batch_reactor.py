@@ -35,7 +35,7 @@ class BatchReactor(BaseReactor):
         self.species_list = list(initial_concentrations.keys())
         
     def _ode_system(self,
-                    t: float,
+                    t,
                     y: np.ndarray) -> np.ndarray:
         """
         ODE system for the batch reactor
@@ -71,7 +71,7 @@ class BatchReactor(BaseReactor):
         Parameters:
         ----------
             end_time : float
-                End time for the simulation
+                End time for the simulation in seconds
             time_points : Optional[np.ndarray]
                 Array of time points at which to record results
         
@@ -79,10 +79,14 @@ class BatchReactor(BaseReactor):
         -------
             Dict : Simulation results
         """
-        # Set up time points if not provided
+        # Set up time points if not provided, in seconds
         if time_points is None:
             time_points = np.linspace(0, end_time, 100)
-            
+        
+        # Ensure time_points includes the end time
+        #if time_points[-1] != end_time:
+        #    time_points = np.append(time_points, end_time)
+        
         # Convert initial concentrations to array
         y0 = np.array([self.concentrations[species] for species in self.species_list])
         
