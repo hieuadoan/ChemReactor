@@ -24,6 +24,8 @@ dependencies = [
     "scipy>=1.12.0",
     "matplotlib>=3.8.0",
     "pandas>=2.1.0",
+    "streamlit>=1.43.1",
+    "watchdog>=6.0.0",
 ]
 
 [project.optional-dependencies]
