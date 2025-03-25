@@ -255,7 +255,7 @@ def calculate_cstr_conversions(
     for rt in residence_times:
         # Calculate flow rate from residence time
         flow_rate = volume / rt
-        reactor, results = run_cstr_calc(
+        _, results = run_cstr_calc(
             k_value, inlet_conc_A, inlet_conc_B, flow_rate, volume
         )
 
@@ -336,7 +336,7 @@ def main():
         )
 
         # Run simulation using your existing code
-        reactor, results = run_batch_reactor(
+        _, results = run_batch_reactor(
             k_value, initial_conc_A, initial_conc_B, end_time, volume
         )
 
@@ -468,9 +468,7 @@ def main():
         )
 
         # Run simulation using your existing code
-        reactor, results = run_cstr(
-            k_value, inlet_conc_A, inlet_conc_B, flow_rate, volume
-        )
+        _, results = run_cstr(k_value, inlet_conc_A, inlet_conc_B, flow_rate, volume)
 
         # Calculate residence time
         residence_time = volume / flow_rate
@@ -653,7 +651,7 @@ def main():
             help="Diameter of the reactor",
         )
         # Run simulation using your existing code
-        reactor, results = run_pfr(
+        _, results = run_pfr(
             k_value, inlet_conc_A, inlet_conc_B, diameter, flow_rate, volume
         )
 
