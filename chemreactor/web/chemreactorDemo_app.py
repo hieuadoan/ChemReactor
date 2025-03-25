@@ -475,14 +475,11 @@ def main():
         # Calculate residence time
         residence_time = volume / flow_rate
 
-        # For the Damköhler number (ratio of reaction rate to flow rate)
-        damkohler = k_value * residence_time
-
         # Create concentration bar chart
         steady_state = results["steady_state"]["concentrations"]
 
         fig, ax = plt.subplots(figsize=(10, 6))
-        bars = ax.bar(
+        ax.bar(
             ["A", "B"],
             [steady_state.get("A", 0), steady_state.get("B", 0)],
             color=["red", "blue"],
@@ -617,27 +614,6 @@ def main():
                 st.markdown(
                     "- Moderate residence time: Balanced flow and reaction rates"
                 )
-
-        # Add parameter effect explanation
-        st.subheader("How Parameters Affect CSTR Performance")
-        st.markdown("""
-        - **Increasing flow rate**: Decreases residence time, which typically reduces conversion
-        - **Decreasing flow rate**: Increases residence time, which typically increases conversion
-        - **Increasing rate constant**: Speeds up reaction, increasing conversion at the same residence time
-        - **Decreasing rate constant**: Slows down reaction, decreasing conversion at the same residence time
-        - **Increasing reactor volume**: Increases residence time, leading to higher conversion
-        - **Increasing inlet concentration**: Changes equilibrium position and may alter conversion
-        """)
-
-        # Add section comparing CSTR vs Batch
-        st.subheader("CSTR vs. Batch Reactor")
-        st.markdown("""
-        For a first-order reaction:
-        - **Batch reactor**: Can achieve complete conversion given enough time
-        - **CSTR**: Cannot achieve complete conversion even with infinite residence time
-        - For the same conversion, a CSTR typically requires a larger volume than a batch reactor
-        - However, CSTRs offer continuous operation and easier temperature control
-        """)
 
     else:  # PFR
         st.header("PFR Simulation")
