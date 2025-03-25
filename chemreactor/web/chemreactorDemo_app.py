@@ -398,19 +398,19 @@ def main():
         # Add explanation
         st.markdown(f"""
         ### Batch Reactor Explanation
-        
+
         In a batch reactor:
         - All reactants are loaded at the beginning
         - No inflow or outflow during the reaction
         - Concentration changes with time until equilibrium
-        
+
         **Current Parameters:**
         - Rate constant (k): {k_value:.2f} s⁻¹
         - Initial concentration of A: {initial_conc_A:.1f} mol/L
         - Initial concentration of B: {initial_conc_B:.1f} mol/L
         - Reactor volume: {volume:.1f} L
         - Simulation time: {end_time:.1f} s
-        
+
         **Observations:**
         """)
 
@@ -575,13 +575,13 @@ def main():
         # Add explanation
         st.markdown(f"""
         ### CSTR Explanation
-        
+
         In a Continuous Stirred-Tank Reactor (CSTR):
         - Reactants continuously flow in
         - Products continuously flow out
         - Perfect mixing is assumed
         - Reaches a steady state where concentrations remain constant
-        
+
         **Current Parameters:**
         - Rate constant (k): {k_value:.2f} s⁻¹
         - Inlet concentration of A: {inlet_conc_A:.1f} mol/L
@@ -589,7 +589,7 @@ def main():
         - Flow rate: {flow_rate:.2f} L/s
         - Reactor volume: {volume:.1f} L
         - Residence time (τ): {residence_time:.2f} s
-        
+
         **Observations:**
         """)
 
@@ -674,13 +674,13 @@ def main():
         # Add explanation
         st.markdown(f"""
         ### Plug Flow Reactor Explanation
-        
+
         A plug-flow reactor is a tubular reactor:
         - Most used often for gas-phase reactions
         - In which reactants are contnually consumed as they flow down the legnth of the reactor
         - In which the flow field may be modeled by that of a plug-flow profile (uniform readial velcocity)
         - In which there is no radial vairation in the reaction rate
-        
+
         **Current Parameters:**
         - Rate constant (k): {k_value:.2f} s⁻¹
         - Initial concentration of A: {inlet_conc_A:.1f} mol/L
