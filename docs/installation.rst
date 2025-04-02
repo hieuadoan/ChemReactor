@@ -5,7 +5,7 @@ Installation
 .. code-block:: bash
 
 	git clone https://github.com/hieuadoan/ChemReactor.git
-	cd chemreactor
+	cd ChemReactor
 
 2. Create virtual environment with uv
 
