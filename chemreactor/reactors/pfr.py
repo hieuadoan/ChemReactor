@@ -116,6 +116,9 @@ class PFR(BaseReactor):
             # Update history, replace tims with positions
             self.history["position"] = list(positions)
             self.history.pop("time", None)
+            
+            # Re-initialize the concentrations list before populating
+            self.history['concentrations'] = []
 
             # Update concentration history
             for i, _ in enumerate(positions):

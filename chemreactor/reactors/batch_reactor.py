@@ -106,7 +106,10 @@ class BatchReactor(BaseReactor):
             
             # Upgrade history
             self.history['time'] = list(times)
-            
+           	
+            # Re-initialize the concentration list before populating
+            self.history['concentrations'] = []
+ 
             # Update concentration history
             for i, _ in enumerate(times):
                 conc_dict = {species: concentrations[j, i]
